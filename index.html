@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-    
 <body>
     <header>
         <h1>🌌 Le Labyrinthe Organic</h1>
@@ -23,59 +22,46 @@
         <section class="rules-section">
             <h2>🔮 Les types de cartes Map</h2>
             <div class="card-types">
-                <div class="card-types">
-                    <div class="card-type" style="cursor: pointer;"> <!-- Ajoutez style="cursor: pointer;" -->
-                        <div class="card-icon yellow">🟨</div>
-                        <h3>Carte de départ</h3>
-                        <p>Là où les joueurs commence, cette carte ne peut être détruite.</p>
-                    </div>
-                    <!-- Répétez pour les autres cartes -->
+                <div class="card-type" style="cursor: pointer;">
+                    <div class="card-icon yellow">🟨</div>
+                    <h3>Carte de départ</h3>
+                    <p>Là où les joueurs commencent, cette carte ne peut être détruite.</p>
                 </div>
-
-                <div class="card-type">
+                <div class="card-type" style="cursor: pointer;">
                     <div class="card-icon white">⬜</div>
                     <h3>Neutres</h3>
                     <p>Pièces sans effet, servant à construire le Labyrinthe.</p>
                 </div>
-                <div class="card-type">
+                <div class="card-type" style="cursor: pointer;">
                     <div class="card-icon portal">🌀</div>
                     <h3>Portails</h3>
                     <p>Permettent de se téléporter à n'importe quel autre portail visible sur la carte.</p>
                 </div>
             </div>
-            <p class="note">Certaines cartes ont des passages bloqués (murs, impasses, culs-de-sac).<br>
-            → On ne peut relier deux cartes que si leurs passages coïncident visuellement.</p>
         </section>
 
         <section class="rules-section">
             <h2>🧭 Déroulement d'un tour</h2>
-            <p>Le jeu se joue en tours individuels, dans le sens des aiguilles d'une montre. Chaque joueur dispose de <strong>3 Points d'Action (PA)</strong> par tour.</p>
-
-            <div class="action-grid">
-                <div class="action-card">
+            <p>Le jeu se joue en tours individuels, dans le sens des aiguilles d’une montre. Chaque joueur dispose de 3 Points d’Action (PA) par tour.</p>
+            <div class="actions">
+                <div class="action">
                     <h3>Explorer (1 PA)</h3>
-                    <p>Se déplacer sur une nouvelle carte, révélée ou non. Si la carte est nouvelle, piochez la première du deck et connectez-la selon les ouvertures visibles.</p>
+                    <p>Se déplacer sur une nouvelle carte, révélée ou non.</p>
                 </div>
-                <div class="action-card">
+                <div class="action">
                     <h3>Sprinter (1 PA, 1 fois par tour)</h3>
                     <p>Lancez un dé à 6 faces et déplacez-vous du nombre de cartes indiqué, mais uniquement sur des cartes déjà révélées.</p>
                 </div>
-                <div class="action-card">
+                <div class="action">
                     <h3>Combattre (0 PA, 1 fois par tour)</h3>
-                    <p>Si un autre joueur est sur la même carte, vous pouvez déclencher un combat. Chacun lance un D6 → le plus bas perd et retourne au Hall Central.</p>
-                    <p class="small">PS : si un joueur passe sur votre case pendant son tour, vous pouvez déclencher un combat.</p>
-                </div>
-                <div class="action-card">
-                    <h3>Activer un effet de Map (0 PA)</h3>
-                    <p>Utilisez immédiatement l'effet d'une carte spéciale sur laquelle vous vous trouvez.</p>
-                    <p class="small">(Possible de terminer un sprint après avoir activé un effet)</p>
+                    <p>Si un autre joueur est sur la même carte, lancez un D6. Le plus bas perd et retourne au Hall Central.</p>
                 </div>
             </div>
         </section>
 
         <section class="rules-section">
             <h2>🌪️ Le Séisme</h2>
-            <p>À la fin du tour d'un joueur, il peut déclencher un séisme :</p>
+            <p>À la fin du tour d’un joueur, il peut déclencher un séisme :</p>
             <ul>
                 <li>Il choisit une carte Map (ni la carte de départ ni une carte où se trouve un joueur) et la retire du plateau.</li>
                 <li>La carte retirée va en dessous de la pioche.</li>
@@ -83,396 +69,807 @@
         </section>
 
         <section class="rules-section">
-            <h2>🚪 Les cartes Raccord</h2>
-            <p>Le Labyrinthe peut rapidement déborder de la table... et c'est tout à fait normal.</p>
-            <ul>
-                <li>Lorsqu'un joueur souhaite continuer dans une direction qui sortirait du plateau, il peut placer une carte Raccord.</li>
-                <li>Chaque carte Raccord représente une porte numérotée comme sa jumelle (ex. Porte 1, Porte 2...).</li>
-                <li>On place la première porte à l'endroit où l'on quitte la table.</li>
-                <li>On place ensuite la porte jumelle du même numéro ailleurs dans la pièce (sur une autre table, une chaise, ou même un meuble).</li>
-                <li>Ces portes sont indestructibles.</li>
-            </ul>
-        </section>
-
-        <section class="items-section">
-            <h2>🎒 Liste des Items</h2>
-
-            <div class="item-category red">
-                <h3>💥 Items de combat (rouge)</h3>
-                <div class="items-grid">
-                    <div class="item-card red" style="cursor: pointer;">
-                        <h4>Gourdin</h4>
-                        <p><strong>Passif</strong>: Lance deux dés en combat, garde le meilleur résultat.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Grenade</h4>
-                        <p><strong>1PA 1xtour</strong>: Sélectionne une case en ligne droite et lance un dé d'attaque. L'attaque touche la case sélectionnée + toutes les cases reliées à 2 de distance.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Lance flamme</h4>
-                        <p><strong>1PA 1xtour</strong>: Attaque autant de joueurs possible en ligne droite. L'attaquant lance un dé et chaque défenseur lance chacun un dé pour se défendre.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Pistolet</h4>
-                        <p><strong>1PA 1xtour</strong>: Peut attaquer un joueur situé sur la même ligne (sans mur).</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Vengeance !</h4>
-                        <p><strong>Passif</strong>: Si tu perds un combat, lance un dé : sur 5 ou 6, vous perdez tous les deux.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Furie</h4>
-                        <p><strong>Passif</strong>: Après avoir gagné un combat, rejoue immédiatement un tour avec 3 PA.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Chaussures qui court vite</h4>
-                        <p><strong>Passif</strong>: Quand un joueur t'attaque, tu peux lancer un d6, sur 4+ le combat est annulé.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Chaussures qui court loin</h4>
-                        <p><strong>Passif</strong>: Quand un joueur t'attaque, tu peux lancer un d6, sur 4+ le combat est annulé et l'attaquant et toi vous déplacez sur n'importe quel portail.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Chacal</h4>
-                        <p><strong>1PA</strong>: Pose 3 jetons faces cachés n'importe où sur la map, l'un des 3 est un piège et tue la personne qui marche dessus.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Poing américain</h4>
-                        <p><strong>Passif</strong>: +1 au résultat du dé pendant un combat.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Bouclier</h4>
-                        <p><strong>Passif</strong>: Lance 3 dés pendant un combat, uniquement pour se défendre.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Mercy</h4>
-                        <p><strong>0PA 3xpartie</strong>: Si un autre joueur perd un combat à moins de 3 cases de vous, vous pouvez annuler ce combat.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Couteau de l'Ombre</h4>
-                        <p><strong>Passif</strong>: Tu peux attaquer un joueur ou un monstre sur une carte adjacente et à travers un mur.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Hache du Tyran</h4>
-                        <p><strong>Passif</strong>: Quand tu tues un joueur, lance un d6, sur 4+, pioche un item.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Bâton de Brume</h4>
-                        <p><strong>Passif</strong>: Si tu gagnes un combat, tu peux immédiatement te téléporter vers un portail visible.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Botte du Chasseur</h4>
-                        <p><strong>Passif</strong>: Lance deux dés en combat contre les monstres.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Sacrieur</h4>
-                        <p><strong>0PA 1xtour</strong>: Attire un joueur en ligne droite, si vous déclenchez un combat dans le même tour +1 au résultat du dé.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Cocotte minute</h4>
-                        <p><strong>Passif</strong>: À la fin de votre tour, si vous n'avez pas déclenché de combat, ajoutez un compteur. Lors d'un combat, payez un compteur pour ajouter un dé.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Lame maudite</h4>
-                        <p><strong>Passif</strong>: +1 au dé pendant un combat. Augmente de +1 pour chaque objet maudit possédé.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Lutte illitée</h4>
-                        <p><strong>Passif</strong>: Ajoute un dé de combat pour chaque item que vous possédez.</p>
+            <h2>🎒 Items</h2>
+            <div class="items-container">
+                <div class="item-category">
+                    <h3>🔴 Items de Combat</h3>
+                    <div class="items-grid">
+                        <div class="item-card red" style="cursor: pointer;" onclick="openModal('modal-item-sacrieur')">
+                            <h4>Sacrieur</h4>
+                            <p><strong>0 PA</strong> 1x/tour : attire un joueur en ligne droite. +1 au dé si combat dans le même tour.</p>
+                        </div>
+                        <div class="item-card red" style="cursor: pointer;" onclick="openModal('modal-item-cocotte')">
+                            <h4>Cocotte Minute</h4>
+                            <p><strong>Passif</strong> : Ajoute un compteur à la fin du tour si pas de combat. 1 compteur = +1 dé en combat.</p>
+                        </div>
+                        <div class="item-card red" style="cursor: pointer;" onclick="openModal('modal-item-lame')">
+                            <h4>Lame Maudite</h4>
+                            <p><strong>Passif</strong> : +1 au dé en combat. +1 supplémentaire par objet maudit possédé.</p>
+                        </div>
+                        <div class="item-card red" style="cursor: pointer;" onclick="openModal('modal-item-lutte')">
+                            <h4>Lutte Illimitée</h4>
+                            <p><strong>Passif</strong> : +1 dé de combat par item possédé.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="item-category blue">
-                <h3>🧭 Items de déplacement (bleu)</h3>
-                <div class="items-grid">
-                    <div class="item-card">
-                        <h4>Voudoo</h4>
-                        <p><strong>1PA</strong>: Déplace de 3 cases révélées un personnage.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Pas Fantôme</h4>
-                        <p><strong>1PA 1xtour</strong>: Déplace-toi à travers un mur.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Sprint Amélioré</h4>
-                        <p><strong>Passif</strong>: Lorsque tu fais un sprint, lance deux dés et garde le meilleur.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Portail de Poche</h4>
-                        <p><strong>1PA</strong>: Téléporte-toi instantanément à n'importe quel portail visible sur la carte.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Porteur de Chemins</h4>
-                        <p><strong>1PA</strong>: Pose une carte Map n'importe où.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Briseur de Sol</h4>
-                        <p><strong>1PA</strong>: Retire une case du plateau.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Rappel Rapide</h4>
-                        <p><strong>1PA</strong>: Déplace-toi vers la carte de départ.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Échange de Place</h4>
-                        <p><strong>1PA</strong>: Choisis un joueur et échange ta position avec lui.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Bolt</h4>
-                        <p><strong>Passif</strong>: Explorer permet de se déplacer ou découvrir 2 cases.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Grapin</h4>
-                        <p><strong>1PA</strong>: Parcours autant de cases possible tant que c'est en ligne droite (révélée ou non).</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Panda</h4>
-                        <p><strong>1PA</strong>: Porter et jeter un personnage sur autant de cases qu'on veut tant que c'est en ligne droite et sur des cases révélées.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Sadida</h4>
-                        <p><strong>0PA 2xtour</strong>: Retourne une case map. La case ne peut plus être traversée ni détruite.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Tracer</h4>
-                        <p><strong>0PA 1xtour</strong>: À la fin de son tour, le joueur peut choisir de revenir sur la case où il a commencé son tour.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Marque du Voyageur</h4>
-                        <p><strong>0PA</strong>: Pose un "artefact" sur ta case : tu peux t'y téléporter plus tard pour 1 PA. La case devient indestructible.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Parachute</h4>
-                        <p><strong>Passif</strong>: Quand vous passez à travers un portail, vous choisissez n'importe quelle case pour atterrir.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Bon réflexe</h4>
-                        <p><strong>0PA 1xtour</strong>: À la fin de votre tour, vous avez un sprint gratuit.</p>
+                <div class="item-category">
+                    <h3>🔵 Items de Déplacement</h3>
+                    <div class="items-grid">
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-voudoo')">
+                            <h4>Voudoo</h4>
+                            <p><strong>1 PA</strong> : Déplace un personnage de 3 cases révélées.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-pas-fantome')">
+                            <h4>Pas Fantôme</h4>
+                            <p><strong>1 PA</strong> 1x/tour : Traversez un mur.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-sprint')">
+                            <h4>Sprint Amélioré</h4>
+                            <p><strong>Passif</strong> : Lancez 2 dés lors d'un sprint, gardez le meilleur.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-portail-poche')">
+                            <h4>Portail de Poche</h4>
+                            <p><strong>1 PA</strong> : Téléportez-vous à n'importe quel portail visible.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-porteur')">
+                            <h4>Porteur de Chemins</h4>
+                            <p><strong>1 PA</strong> : Posez une carte Map n'importe où.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-briseur')">
+                            <h4>Briseur de Sol</h4>
+                            <p><strong>1 PA</strong> : Retirez une case du plateau.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-rappel')">
+                            <h4>Rappel Rapide</h4>
+                            <p><strong>1 PA</strong> : Retournez à la carte de départ.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-echange')">
+                            <h4>Échange de Place</h4>
+                            <p><strong>1 PA</strong> : Échangez votre position avec un autre joueur.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-bolt')">
+                            <h4>Bolt</h4>
+                            <p><strong>Passif</strong> : Explorer permet de découvrir 2 cases.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-grapin')">
+                            <h4>Grapin</h4>
+                            <p><strong>1 PA</strong> : Parcours des cases en ligne droite (révélées ou non).</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-panda')">
+                            <h4>Panda</h4>
+                            <p><strong>1 PA</strong> : Portez et jetez un personnage en ligne droite sur des cases révélées.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-sadida')">
+                            <h4>Sadida</h4>
+                            <p><strong>0 PA</strong> 2x/tour : Retournez une case Map (devient infranchissable et indestructible).</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-tracer')">
+                            <h4>Tracer</h4>
+                            <p><strong>0 PA</strong> 1x/tour : Revenez à votre case de départ du tour.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-marque')">
+                            <h4>Marque du Voyageur</h4>
+                            <p><strong>0 PA</strong> : Posez un artefact pour vous téléporter plus tard (1 PA).</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-parachute')">
+                            <h4>Parachute</h4>
+                            <p><strong>Passif</strong> : Choisissez votre case d'atterrissage après un portail.</p>
+                        </div>
+                        <div class="item-card blue" style="cursor: pointer;" onclick="openModal('modal-item-bon-reflexe')">
+                            <h4>Bon Réflexe</h4>
+                            <p><strong>0 PA</strong> 1x/tour : Sprint gratuit à la fin de votre tour.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="item-category purple">
-                <h3>🔮 Items spéciaux (violet)</h3>
-                <div class="items-grid">
-                    <div class="item-card">
-                        <h4>Eliotrope</h4>
-                        <p><strong>1PA</strong>: Déplace un portail où tu veux.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Sablier</h4>
-                        <p><strong>Passif</strong>: 1 PA de plus par tour.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Xelor</h4>
-                        <p><strong>0PA 1xtour</strong>: Vole 1 PA à un joueur.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Cadran du temps</h4>
-                        <p><strong>0PA</strong>: Glissez cet item en bas de la pioche, piochez un item et rejouez un tour complet.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Miroir de Brume</h4>
-                        <p><strong>2PA</strong>: Utilise gratuitement l'effet de l'item d'un joueur.</p>
-                    </div>
-                    <div class="item-card">
-                        <h4>Cain</h4>
-                        <p><strong>0PA 1xtour</strong>: Regarde les 3 prochaines cartes d'une pioche.</p>
+                <div class="item-category">
+                    <h3>🟣 Items Spéciaux</h3>
+                    <div class="items-grid">
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-eliotrope')">
+                            <h4>Eliotrope</h4>
+                            <p><strong>1 PA</strong> : Déplacez un portail où vous voulez.</p>
+                        </div>
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-sablier')">
+                            <h4>Sablier</h4>
+                            <p><strong>Passif</strong> : +1 PA par tour.</p>
+                        </div>
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-xelor')">
+                            <h4>Xelor</h4>
+                            <p><strong>0 PA</strong> 1x/tour : Volez 1 PA à un joueur.</p>
+                        </div>
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-cadran')">
+                            <h4>Cadran du Temps</h4>
+                            <p><strong>0 PA</strong> : Glissez cet item en bas de la pioche, piochez un item et rejouez un tour.</p>
+                        </div>
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-miirror')">
+                            <h4>Miroir de Brume</h4>
+                            <p><strong>2 PA</strong> : Utilisez gratuitement l'effet d'un item d'un autre joueur.</p>
+                        </div>
+                        <div class="item-card purple" style="cursor: pointer;" onclick="openModal('modal-item-cain')">
+                            <h4>Cain</h4>
+                            <p><strong>0 PA</strong> 1x/tour : Regardez les 3 prochaines cartes d'une pioche.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2023 Le Labyrinthe Organic - Un jeu de [Nom de votre pote]</p>
-    </footer>
-    <!-- Modales pour les cartes Map -->
-<div id="modal-map-start" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>🟨 Carte de Départ</h2>
-        <div class="modal-visual">
-            <div class="grid-container">
-                <div class="grid-cell start"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
+    <!-- MODALES POUR LES CARTES MAP -->
+    <div id="modal-map-start" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-map-start')">&times;</span>
+            <h2>🟨 Carte de Départ</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell start"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🏠</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                </div>
             </div>
+            <p><strong>Effet :</strong> Point de départ invulnérable. Les joueurs commencent ici et peuvent toujours y revenir.</p>
         </div>
-        <p><strong>Effet :</strong> Point de départ invulnérable. Les joueurs commencent ici et peuvent toujours y revenir.</p>
     </div>
-</div>
 
-<div id="modal-map-neutral" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>⬜ Carte Neutre</h2>
-        <div class="modal-visual">
-            <div class="grid-container">
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell center">⬜</div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
+    <div id="modal-map-neutral" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-map-neutral')">&times;</span>
+            <h2>⬜ Carte Neutre</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">⬜</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                </div>
             </div>
+            <p><strong>Effet :</strong> Pièce standard sans effet spécial. Peut être détruite par un séisme.</p>
         </div>
-        <p><strong>Effet :</strong> Pièce standard sans effet spécial. Peut être détruite par un séisme.</p>
     </div>
-</div>
 
-<div id="modal-map-portal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>🌀 Portail</h2>
-        <div class="modal-visual">
-            <div class="grid-container">
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell portal"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell center">🌀</div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell portal"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path"></div>
+    <div id="modal-map-portal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-map-portal')">&times;</span>
+            <h2>🌀 Portail</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">🌀</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                </div>
             </div>
+            <p><strong>Effet :</strong> Téléportez-vous vers n'importe quel autre portail visible sur la carte.</p>
         </div>
-        <p><strong>Effet :</strong> Téléportez-vous vers n'importe quel autre portail visible sur la carte.</p>
     </div>
-</div>
 
-<!-- Modales pour les items (exemples) -->
-<div id="modal-item-sacrieur" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>💥 Sacrieur</h2>
-        <div class="modal-visual">
-            <div class="grid-container">
-                <div class="grid-cell"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell path red"></div>
-                <div class="grid-cell center">👹</div>
-                <div class="grid-cell path red"></div>
-                <div class="grid-cell"></div>
-                <div class="grid-cell player">👤</div>
-                <div class="grid-cell"></div>
+    <!-- MODALES POUR LES ITEMS DE COMBAT -->
+    <div id="modal-item-sacrieur" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-sacrieur')">&times;</span>
+            <h2>💥 Sacrieur</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path red"></div>
+                    <div class="grid-cell center">👹</div>
+                    <div class="grid-cell path red"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell"></div>
+                </div>
             </div>
+            <p><strong>Effet :</strong> Attire un joueur en ligne droite. Si vous déclenchez un combat dans le même tour, +1 au résultat du dé.</p>
+            <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
         </div>
-        <p><strong>Effet :</strong> Attire un joueur en ligne droite. Si vous déclenchez un combat dans le même tour, +1 au résultat du dé.</p>
-        <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
     </div>
-</div>
 
-<div id="modal-item-pas-fantome" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>🧭 Pas Fantôme</h2>
-        <div class="modal-visual">
-            <div class="grid-container">
-                <div class="grid-cell path"></div>
-                <div class="grid-cell wall"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell player">👤</div>
-                <div class="grid-cell center">👻</div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell wall"></div>
-                <div class="grid-cell path"></div>
-                <div class="grid-cell"></div>
+    <div id="modal-item-cocotte" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-cocotte')">&times;</span>
+            <h2>🕒 Cocotte Minute</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">💣</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell counter">⚪</div>
+                    <div class="grid-cell counter">⚪</div>
+                </div>
             </div>
+            <p><strong>Effet :</strong> À la fin de votre tour, si vous n'avez pas combattu, ajoutez un compteur. Pendant un combat, dépensez des compteurs pour ajouter des dés (1 compteur = +1 dé).</p>
+            <p><strong>Type :</strong> Passif</p>
         </div>
-        <p><strong>Effet :</strong> Traversez un mur comme s'il n'existait pas.</p>
-        <p><strong>Coût :</strong> 1 PA, 1x/tour</p>
     </div>
-</div>
-<script>
-    // Fonction pour ouvrir une modale
-    function openModal(modalId) {
-        document.getElementById(modalId).style.display = "block";
-        document.body.style.overflow = "hidden"; // Empêche le scroll en arrière-plan
-    }
 
-    // Fonction pour fermer une modale
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-        document.body.style.overflow = "auto";
-    }
+    <div id="modal-item-lame" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-lame')">&times;</span>
+            <h2>🗡️ Lame Maudite</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🗡️</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲+1</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> +1 au dé en combat. +1 supplémentaire par objet maudit possédé.</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
 
-    // Fermer la modale en cliquant sur la croix
-    document.querySelectorAll('.close').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
-            this.parentElement.parentElement.style.display = "none";
+    <div id="modal-item-lutte" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-lutte')">&times;</span>
+            <h2>🥊 Lutte Illimitée</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲</div>
+                    <div class="grid-cell center">🥊</div>
+                    <div class="grid-cell dice">🎲</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Ajoutez un dé de combat pour chaque item que vous possédez.</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
+
+    <!-- MODALES POUR LES ITEMS DE DÉPLACEMENT -->
+    <div id="modal-item-voudoo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-voudoo')">&times;</span>
+            <h2>🧙 Voudoo</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🧙</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell path arrow">→</div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Déplacez un personnage de 3 cases révélées.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-pas-fantome" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-pas-fantome')">&times;</span>
+            <h2>👻 Pas Fantôme</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell wall"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell center">👻</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell wall"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Traversez un mur comme s'il n'existait pas.</p>
+            <p><strong>Coût :</strong> 1 PA, 1x/tour</p>
+        </div>
+    </div>
+
+    <div id="modal-item-sprint" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-sprint')">&times;</span>
+            <h2>🏃 Sprint Amélioré</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">🏃</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲🎲</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Lorsque vous faites un sprint, lancez deux dés et gardez le meilleur.</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
+
+    <div id="modal-item-portail-poche" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-portail-poche')">&times;</span>
+            <h2>🚪 Portail de Poche</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">👤</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Téléportez-vous instantanément à n'importe quel portail visible sur la carte.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-porteur" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-porteur')">&times;</span>
+            <h2>🗺️ Porteur de Chemins</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🗺️</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell new-card">🆕</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Posez une carte Map n'importe où sur le plateau.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-briseur" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-briseur')">&times;</span>
+            <h2>💥 Briseur de Sol</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">💥</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell broken">❌</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Retirez une case du plateau (comme un séisme, mais ciblé).</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-rappel" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-rappel')">&times;</span>
+            <h2>🏠 Rappel Rapide</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">👤</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell start">🏠</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Déplacez-vous vers la carte de départ.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-echange" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-echange')">&times;</span>
+            <h2>🔄 Échange de Place</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path arrow">↔</div>
+                    <div class="grid-cell center">🔄</div>
+                    <div class="grid-cell path arrow">↔</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell other-player">👥</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Échangez votre position avec un autre joueur.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-bolt" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-bolt')">&times;</span>
+            <h2>⚡ Bolt</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">⚡</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell new-card">🆕</div>
+                    <div class="grid-cell new-card">🆕</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Explorer permet de se déplacer <strong>ou</strong> découvrir 2 cases.</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
+
+    <div id="modal-item-grapin" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-grapin')">&times;</span>
+            <h2>🪝 Grapin</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">🪝</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Parcours autant de cases que possible en ligne droite (révélées ou non).</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-panda" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-panda')">&times;</span>
+            <h2>🐼 Panda</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🐼</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell other-player">👥</div>
+                    <div class="grid-cell path arrow">→</div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Portez et jetez un personnage sur autant de cases que vous voulez en ligne droite (cases révélées).</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-sadida" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-sadida')">&times;</span>
+            <h2>🧙 Sadida</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🧙</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell broken">❌</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Retournez une carte Map (2x/tour). La case ne peut plus être traversée ni détruite.</p>
+            <p><strong>Coût :</strong> 0 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-tracer" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-tracer')">&times;</span>
+            <h2>🗺️ Tracer</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">👣</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell start">🏠</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> À la fin de votre tour, revenez sur la case où vous avez commencé.</p>
+            <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
+        </div>
+    </div>
+
+    <div id="modal-item-marque" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-marque')">&times;</span>
+            <h2>📍 Marque du Voyageur</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">👤</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell artifact">⭐</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Posez un artefact sur votre case. Vous pouvez vous y téléporter plus tard pour 1 PA. La case devient indestructible.</p>
+            <p><strong>Coût :</strong> 0 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-parachute" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-parachute')">&times;</span>
+            <h2>🪂 Parachute</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🪂</div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell target">🎯</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Quand vous passez à travers un portail, choisissez n'importe quelle case pour atterrir (pas uniquement un autre portail).</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
+
+    <div id="modal-item-bon-reflexe" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-bon-reflexe')">&times;</span>
+            <h2>🏃 Bon Réflexe</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">🏃</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell dice">🎲</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> À la fin de votre tour, obtenez un sprint gratuit.</p>
+            <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
+        </div>
+    </div>
+
+    <!-- MODALES POUR LES ITEMS SPÉCIAUX -->
+    <div id="modal-item-eliotrope" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-eliotrope')">&times;</span>
+            <h2>🌀 Eliotrope</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🌀</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell portal"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Déplacez un portail où vous voulez sur la carte.</p>
+            <p><strong>Coût :</strong> 1 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-sablier" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-sablier')">&times;</span>
+            <h2>⏳ Sablier</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell pa">+1</div>
+                    <div class="grid-cell center">⏳</div>
+                    <div class="grid-cell pa">+1</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell pa">+1</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Obtenez +1 Point d'Action par tour.</p>
+            <p><strong>Type :</strong> Passif</p>
+        </div>
+    </div>
+
+    <div id="modal-item-xelor" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-xelor')">&times;</span>
+            <h2>🕰️ Xelor</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell pa">-1</div>
+                    <div class="grid-cell center">🕰️</div>
+                    <div class="grid-cell path arrow">→</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell other-player">👥</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Volez 1 PA à un joueur.</p>
+            <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
+        </div>
+    </div>
+
+    <div id="modal-item-cadran" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-cadran')">&times;</span>
+            <h2>🕒 Cadran du Temps</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🕒</div>
+                    <div class="grid-cell path arrow">↻</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell new-item">🆕</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Glissez cet item en bas de la pioche, piochez un nouvel item et rejouez un tour complet.</p>
+            <p><strong>Coût :</strong> 0 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-miirror" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-miirror')">&times;</span>
+            <h2>🪞 Miroir de Brume</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell other-player">👥</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell path"></div>
+                    <div class="grid-cell center">🪞</div>
+                    <div class="grid-cell path arrow">↔</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell player">👤</div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Utilisez gratuitement l'effet d'un item d'un autre joueur.</p>
+            <p><strong>Coût :</strong> 2 PA</p>
+        </div>
+    </div>
+
+    <div id="modal-item-cain" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-item-cain')">&times;</span>
+            <h2>👁️ Cain</h2>
+            <div class="modal-visual">
+                <div class="grid-container">
+                    <div class="grid-cell card">🃏</div>
+                    <div class="grid-cell card">🃏</div>
+                    <div class="grid-cell card">🃏</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell center">👁️</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <p><strong>Effet :</strong> Regardez les 3 prochaines cartes d'une pioche.</p>
+            <p><strong>Coût :</strong> 0 PA, 1x/tour</p>
+        </div>
+    </div>
+
+    <script>
+        // Fonctions pour gérer les modales
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
             document.body.style.overflow = "auto";
-        });
-    });
-
-    // Fermer la modale en cliquant en dehors
-    window.addEventListener('click', function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-            document.body.style.overflow = "auto";
         }
-    });
 
-    // Ajouter des événements de clic aux cartes
-    document.addEventListener('DOMContentLoaded', function() {
-        // Cartes Map
-        document.querySelectorAll('.card-type').forEach((card, index) => {
-            card.addEventListener('click', function() {
-                if (index === 0) openModal('modal-map-start');
-                else if (index === 1) openModal('modal-map-neutral');
-                else if (index === 2) openModal('modal-map-portal');
+        // Fermer les modales en cliquant sur la croix
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.parentElement.parentElement.style.display = "none";
+                document.body.style.overflow = "auto";
             });
         });
 
-        // Items (exemples pour Sacrieur et Pas Fantôme)
-        const sacrieurCard = document.querySelector('.item-card h4:contains("Sacrieur")').closest('.item-card');
-        if (sacrieurCard) {
-            sacrieurCard.addEventListener('click', function() {
-                openModal('modal-item-sacrieur');
-            });
-        }
+        // Fermer les modales en cliquant en dehors
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
 
-        const pasFantomeCard = document.querySelector('.item-card h4:contains("Pas Fantôme")').closest('.item-card');
-        if (pasFantomeCard) {
-            pasFantomeCard.addEventListener('click', function() {
-                openModal('modal-item-pas-fantome');
-            });
-        }
-    });
-
-    // Helper pour sélectionner des éléments par texte (pour les items)
-    if (!document.querySelectorAll(':contains')) {
-        document.querySelectorAll = (function(original) {
-            return function(selector) {
-                if (selector.startsWith(':contains(')) {
-                    const text = selector.replace(':contains(', '').replace(')', '').replace(/"/g, '');
-                    const elements = [];
-                    const allElements = document.getElementsByTagName('*');
-                    for (let i = 0; i < allElements.length; i++) {
-                        if (allElements[i].textContent.includes(text)) {
-                            elements.push(allElements[i]);
-                        }
-                    }
-                    return elements;
-                } else {
-                    return original.apply(this, arguments);
-                }
-            };
-        })(document.querySelectorAll);
-    }
-</script>
-
+        // Gestion des clics sur les cartes Map
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardTypes = document.querySelectorAll('.card-type');
+            cardTypes[0].addEventListener('click', () => openModal('modal-map-start'));
+            cardTypes[1].addEventListener('click', () => openModal('modal-map-neutral'));
+            cardTypes[2].addEventListener('click', () => openModal('modal-map-portal'));
+        });
+    </script>
 </body>
 </html>
