@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBbZbUVYrAwj5V6cEX6085AcEFntdndKrw",
+        authDomain: "rumblegus-baa3c.firebaseapp.com",
+        databaseURL: "https://rumblegus-baa3c-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "rumblegus-baa3c",
+        storageBucket: "rumblegus-baa3c.firebasestorage.app",
+        messagingSenderId: "997502020604",
+        appId: "1:997502020604:web:e39ae4f54422a35bfda079",
+        measurementId: "G-1QGSHW3NEV"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
 </head>
 <body>
     <!-- Barre de mode édition -->
